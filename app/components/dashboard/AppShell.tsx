@@ -1,0 +1,19 @@
+"use client";
+
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { useState } from "react";
+import { Award, Bell, BookOpen, Building2, ChartNoAxesCombined, ChefHat, CircleHelp, ClipboardCheck, FileText, Home, Library, MapPin, Menu, Settings, Users, X } from "lucide-react";
+import { brand } from "../../config/brand";
+
+const employeeNav = [
+  ["Home","/employee",Home],["My Training","/employee/training",BookOpen],["Recipes","/employee/recipes",ChefHat],["Station Guides","/employee/training",Library],["Checklists","/employee/checklists",ClipboardCheck],["Certificates","/employee/certificates",Award],["Help","/employee",CircleHelp],
+] as const;
+const managerNav = [
+  ["Overview","/manager",ChartNoAxesCombined],["Employees","/manager/employees",Users],["Training Content","/manager/content",FileText],["Checklists","/manager/content",ClipboardCheck],["Reports","/manager",BookOpen],["Locations","/manager",MapPin],["Settings","/manager",Settings],
+] as const;
+
+export function AppShell({role,children}: {role:"employee"|"manager";children:React.ReactNode}){
+  const path=usePathname(); const [open,setOpen]=useState(false); const items=role==="employee"?employeeNav:managerNav;
+  return <div className="app-layout"><aside className={`sidebar ${open?"open":""}`}><div className="row between"><Link href="/" className="wordmark">{brand.name}.</Link><button className="round-btn mobile-menu-btn" onClick={()=>setOpen(false)} aria-label="Close menu"><X/></button></div><nav className="sidebar-nav" aria-label={`${role} navigation`}>{items.map(([label,href,Icon],index)=><Link key={label} href={href} onClick={()=>setOpen(false)} className={`side-link ${(index===0?path===href:path.startsWith(href)&&href!==`/${role}`)?"active":""}`}><Icon size={19}/>{label}</Link>)}</nav><div className="side-user">{role==="employee"?<div className="row"><img src={brand.images.mateo} className="avatar" alt="Portrait of fictional employee Mateo Williams"/><div><strong style={{fontSize:13}}>Mateo Williams</strong><div style={{fontSize:11,opacity:.6}}>Line Cook · {brand.restaurantName}</div></div></div>:<div className="row"><span className="icon-box"><Building2 size={20}/></span><div><strong style={{fontSize:13}}>Sofia Rivera</strong><div style={{fontSize:11,opacity:.6}}>Training Manager</div></div></div>}</div></aside><main className="app-main"><header className="app-header"><div className="row"><button className="round-btn mobile-menu-btn" onClick={()=>setOpen(true)} aria-label="Open menu"><Menu/></button><div><p className="eyebrow" style={{color:"var(--chilli)",margin:0}}>{role==="employee"?"Bienvenido":"Panel de gerente"}</p><strong>{role==="employee"?"Good morning, Mateo.":"Good morning, Sofia."}</strong></div></div><div className="header-actions"><select aria-label="Restaurant location" defaultValue="main"><option value="main">{brand.restaurantName}</option></select><span className="tag header-role">{role==="employee"?"Employee Demo":"Manager Demo"}</span><button className="round-btn" aria-label="Notifications"><Bell size={19}/></button></div></header><div className="app-content">{children}</div></main>{open&&<button aria-label="Close navigation overlay" onClick={()=>setOpen(false)} style={{position:"fixed",inset:0,zIndex:30,border:0,background:"rgba(0,0,0,.35)"}}/>}</div>
+}

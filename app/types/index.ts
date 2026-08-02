@@ -1,0 +1,9 @@
+export type ModuleStatus = "completed" | "in-progress" | "not-started" | "locked";
+export type TrainingModule = { id: string; title: string; microLabel: string; category: string; lessons: number; completedLessons: number; duration: number; progress: number; status: ModuleStatus; image: string };
+export type Lesson = { id: string; moduleId: string; title: string; lessonNumber: number; duration: number; summary: string; outcomes: string[]; equipment: string[]; steps: string[]; mistakes: string[] };
+export type Recipe = { id: string; name: string; spanishName: string; station: string; time: string; difficulty: "Easy" | "Medium"; allergens: string[]; status: string; image: string; ingredients: string[]; equipment: string[]; method: string[]; portion: string; quality: string; storage: string; notes: string };
+export type QuizQuestion = { id: string; type: "multiple" | "boolean" | "image" | "sequence"; prompt: string; options: string[]; answer: string; explanation: string };
+export type ChecklistTemplate = { id: string; title: string; microLabel: string; items: string[] };
+export type Certificate = { id: string; title: string; earned: boolean; date?: string };
+export type Employee = { id: string; name: string; initials: string; role: string; station: string; startDate: string; pathway: string; progress: number; quizAverage: number; lastActive: string; status: "On track" | "Needs attention" | "Ready for sign-off" };
+export type ManagerActivity = { id: string; person: string; action: string; time: string };
