@@ -55,7 +55,7 @@ export const certificates: Certificate[] = [
 ];
 
 export const employees: Employee[] = [
-  { id:"mateo",name:"Mateo Williams",initials:"MW",role:"Line Cook",station:"Cold Station",startDate:"Jul 14, 2026",pathway:"Kitchen Core",progress:68,quizAverage:88,lastActive:"12 min ago",status:"On track" },
+  { id:"bhavik",name:brand.demoEmployee.name,initials:brand.demoEmployee.initials,role:brand.demoEmployee.role,station:"Cold Station",startDate:"Jul 14, 2026",pathway:"Kitchen Core",progress:68,quizAverage:88,lastActive:"12 min ago",status:"On track" },
   { id:"nina",name:"Nina Patel",initials:"NP",role:"Prep Cook",station:"Prep",startDate:"Jul 21, 2026",pathway:"Prep Foundations",progress:42,quizAverage:76,lastActive:"1 hr ago",status:"Needs attention" },
   { id:"leo",name:"Leo Martinez",initials:"LM",role:"Line Cook",station:"Fryer",startDate:"Jul 7, 2026",pathway:"Kitchen Core",progress:91,quizAverage:94,lastActive:"Today",status:"Ready for sign-off" },
   { id:"maya",name:"Maya Chen",initials:"MC",role:"Server",station:"Front of House",startDate:"Jul 28, 2026",pathway:"Service Essentials",progress:25,quizAverage:82,lastActive:"Yesterday",status:"On track" },
@@ -66,7 +66,7 @@ export const employees: Employee[] = [
 export const managerActivity: ManagerActivity[] = [
   { id:"a1",person:"Leo Martinez",action:"passed Fryer Safety Quiz with 94%",time:"18 minutes ago" },
   { id:"a2",person:"Nina Patel",action:"completed Vegetable Preparation",time:"1 hour ago" },
-  { id:"a3",person:"Mateo Williams",action:"checked 3 pre-shift items",time:"2 hours ago" },
+  { id:"a3",person:brand.demoEmployee.name,action:"checked 3 pre-shift items",time:"2 hours ago" },
   { id:"a4",person:"Amira Hassan",action:"became ready for practical sign-off",time:"Yesterday" },
 ];
 

@@ -76,8 +76,8 @@ public/og.png        Generated social preview card
 
 ## Demo roles
 
-- **Employee:** Mateo Williams, Line Cook
-- **Manager:** Sofia Rivera, Training Manager
+- **Employee:** Bhavik, Line Cook
+- **Manager:** Martin, Training Manager
 - **Restaurant:** Casa Mercado, a fictional demonstration restaurant
 
 No authentication is performed and no form data is transmitted.
