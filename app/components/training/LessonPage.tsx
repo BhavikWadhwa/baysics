@@ -23,7 +23,7 @@ export function LessonPage({ moduleId }: { moduleId: string }) {
     const ids = readStorage<string[]>(STORAGE_KEYS.lessons, []);
     if (!ids.includes(fryerLesson.id)) writeStorage(STORAGE_KEYS.lessons, [...ids, fryerLesson.id]);
     setCompleted(true);
-    window.dispatchEvent(new Event("mise-storage"));
+    window.dispatchEvent(new Event("baysics-storage"));
   };
 
   const progress = completed ? Math.min(100, trainingModule.progress + 13) : trainingModule.progress;

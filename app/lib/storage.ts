@@ -1,4 +1,4 @@
-export const STORAGE_KEYS = { lessons:"mise.completedLessons",quiz:"mise.quizResults",checklists:"mise.checklists",preferences:"mise.preferences" } as const;
+export const STORAGE_KEYS = { lessons:"baysics.completedLessons",quiz:"baysics.quizResults",checklists:"baysics.checklists",preferences:"baysics.preferences" } as const;
 
 export function readStorage<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
@@ -12,5 +12,5 @@ export function writeStorage<T>(key: string, value: T) {
 export function resetDemoStorage() {
   if (typeof window === "undefined") return;
   Object.values(STORAGE_KEYS).forEach((key) => window.localStorage.removeItem(key));
-  window.dispatchEvent(new Event("mise-storage"));
+  window.dispatchEvent(new Event("baysics-storage"));
 }

@@ -1,9 +1,9 @@
 export const brand = {
-  name: "Mise",
+  name: "baysics",
   tagline: "Learn before the rush.",
   restaurantName: "Casa Mercado",
   restaurantCode: "CASA-DEMO",
-  contactEmail: "hello@mise.demo",
+  contactEmail: "hello@baysics.demo",
   demoShift: "Tuesday, August 4",
   colors: { cactus: "#26352B", chilli: "#D85032", marigold: "#E9A23B", tortilla: "#F2CB4D", masa: "#F4EBDD", cream: "#FFF9EF", agave: "#72865B", charcoal: "#25231F", warmGrey: "#766E63", clay: "#D8C9B5" },
   images: {

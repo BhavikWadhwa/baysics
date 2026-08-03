@@ -1,8 +1,8 @@
-# Mise — Restaurant Training Demo
+# baysics — Restaurant Training Demo
 
 **Learn before the rush.**
 
-Mise is a polished frontend concept for helping restaurant employees learn essential information before practical shifts. It combines a story-led public website with employee training and manager oversight demos. The content is fictional demonstration material and is not intended as real food-safety or operating instruction.
+baysics is a polished frontend concept for helping restaurant employees learn essential information before practical shifts. It combines a story-led public website with employee training and manager oversight demos. The content is fictional demonstration material and is not intended as real food-safety or operating instruction.
 
 ## Features
 
@@ -84,7 +84,7 @@ No authentication is performed and no form data is transmitted.
 
 ## Local storage
 
-The prototype stores completed lessons, quiz scores, checklist checks, and demo preferences in the current browser. Keys are defined in `app/lib/storage.ts`. The persistent Demo control includes **Reset**, which removes all Mise demo keys without touching unrelated browser data.
+The prototype stores completed lessons, quiz scores, checklist checks, and demo preferences in the current browser. Keys are defined in `app/lib/storage.ts`. The persistent Demo control includes **Reset**, which removes all baysics demo keys without touching unrelated browser data.
 
 ## Replacing branding
 

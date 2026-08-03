@@ -12,12 +12,12 @@ async function render(path = "/") {
   );
 }
 
-test("server-renders the Mise marketing homepage", async () => {
+test("server-renders the baysics marketing homepage", async () => {
   const response = await render();
   assert.equal(response.status, 200);
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
-  assert.match(html, /Mise/);
+  assert.match(html, /baysics/);
   assert.match(html, /Train your team before the kitchen gets busy\./);
   assert.match(html, /Learn before the rush\./);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
