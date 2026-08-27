@@ -6,7 +6,7 @@ baysics is a frontend concept connecting restaurant training, menu engineering, 
 
 ## Features
 
-- Editorial marketing homepage with sourced industry research, citations, an ROI scenario calculator, and pilot-framework entry point
+- Editorial marketing homepage with sourced industry research, readable citations, and an ROI scenario calculator
 - No-account demo login with direct employee and manager entry points
 - Employee pathway with seven modules, lesson content, video interaction, bilingual terminology, and progress tracking
 - Working five-question quiz with immediate feedback, pass result, retake flow, and saved score
@@ -17,7 +17,6 @@ baysics is a frontend concept connecting restaurant training, menu engineering, 
 - Menu engineering with a four-quadrant matrix, sortable table, transparent calculations, and item details
 - Waste logging with local persistence, cost calculations, trends, ranked ingredients, and training links
 - Public-menu knowledge module and quiz connected to station training
-- Pilot measurement framework with honest before/during placeholders
 - Filterable employee progress table with detail drawer, notes, quiz scores, checklists, and sign-offs
 - Manager content library with local duplicate actions and a convincing lesson editor drawer
 - Persistent prototype role switcher and reset control
@@ -90,7 +89,6 @@ public/og.png        Generated social preview card
 - `/manager/content` — training content library and editor
 - `/manager/menu-engineering` — profitability matrix, analytics table, and item drawer
 - `/manager/waste` — persistent waste entry and cost analytics
-- `/pilot` — proposed restaurant pilot measurement framework
 
 ## Demo roles
 
