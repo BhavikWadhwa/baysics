@@ -18,8 +18,10 @@ test("server-renders the baysics marketing homepage", async () => {
   assert.match(response.headers.get("content-type") ?? "", /^text\/html\b/i);
   const html = await response.text();
   assert.match(html, /baysics/);
-  assert.match(html, /Train your team before the kitchen gets busy\./);
-  assert.match(html, /Learn before the rush\./);
+  assert.match(html, /Train better\. Waste less\. Know what makes money\./);
+  assert.match(html, /Restaurant turnover isn/);
+  assert.doesNotMatch(html, /Help shape the first restaurant pilot/);
+  assert.doesNotMatch(html, /Key problem identified/);
   assert.doesNotMatch(html, /codex-preview|react-loading-skeleton/);
 });
 
@@ -28,5 +30,13 @@ test("server-renders employee and manager entry routes", async () => {
   assert.equal(employee.status, 200);
   assert.equal(manager.status, 200);
   assert.match(await employee.text(), /Your kitchen pathway\./);
-  assert.match(await manager.text(), /Team readiness at a glance\./);
+  assert.match(await manager.text(), /People, menu, and waste/);
+});
+
+test("server-renders operations and pilot routes", async () => {
+  for (const [path, expected] of [["/manager/menu-engineering", /Menu Engineering/], ["/manager/waste", /Waste Tracker/], ["/employee/menu-knowledge", /Menu Knowledge/], ["/pilot", /What would we measure/]]) {
+    const response = await render(path);
+    assert.equal(response.status, 200);
+    assert.match(await response.text(), expected);
+  }
 });

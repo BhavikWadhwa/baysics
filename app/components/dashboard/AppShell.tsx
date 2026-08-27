@@ -3,15 +3,11 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useState } from "react";
-import { Award, Bell, BookOpen, Building2, ChartNoAxesCombined, ChefHat, CircleHelp, ClipboardCheck, FileText, Home, Library, MapPin, Menu, Settings, Users, X } from "lucide-react";
+import { Award, BarChart3, Bell, BookOpen, Building2, ChartNoAxesCombined, ChefHat, ClipboardCheck, FileText, Home, Library, Menu, PackageOpen, Settings, Trash2, Users, X } from "lucide-react";
 import { brand } from "../../config/brand";
 
-const employeeNav = [
-  ["Home","/employee",Home],["My Training","/employee/training",BookOpen],["Recipes","/employee/recipes",ChefHat],["Station Guides","/employee/training",Library],["Checklists","/employee/checklists",ClipboardCheck],["Certificates","/employee/certificates",Award],["Help","/employee",CircleHelp],
-] as const;
-const managerNav = [
-  ["Overview","/manager",ChartNoAxesCombined],["Employees","/manager/employees",Users],["Training Content","/manager/content",FileText],["Checklists","/manager/content",ClipboardCheck],["Reports","/manager",BookOpen],["Locations","/manager",MapPin],["Settings","/manager",Settings],
-] as const;
+const employeeNav = [["Home","/employee",Home],["Training","/employee/training",BookOpen],["Menu Knowledge","/employee/menu-knowledge",FileText],["Recipes","/employee/recipes",ChefHat],["Station Guides","/employee/training",Library],["Checklists","/employee/checklists",ClipboardCheck],["Certificates","/employee/certificates",Award]] as const;
+const managerNav = [["Overview","/manager",ChartNoAxesCombined],["Team","/manager/employees",Users],["Training","/manager/content",BookOpen],["Menu Engineering","/manager/menu-engineering",BarChart3],["Waste","/manager/waste",Trash2],["Recipes","/employee/recipes",ChefHat],["Reports","/manager",PackageOpen],["Settings","/manager",Settings]] as const;
 
 export function AppShell({role,children}: {role:"employee"|"manager";children:React.ReactNode}){
   const path=usePathname(); const [open,setOpen]=useState(false); const items=role==="employee"?employeeNav:managerNav;

@@ -1,6 +1,6 @@
 export const brand = {
   name: "baysics",
-  tagline: "Learn before the rush.",
+  tagline: "Train better. Waste less. Know what makes money.",
   restaurantName: "Casa Mercado",
   restaurantCode: "CASA-DEMO",
   contactEmail: "hello@baysics.demo",

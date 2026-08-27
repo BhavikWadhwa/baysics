@@ -1,19 +1,23 @@
-# baysics — Restaurant Training Demo
+# baysics — Restaurant Training + Operations Demo
 
-**Learn before the rush.**
+**Train better. Waste less. Know what makes money.**
 
-baysics is a polished frontend concept for helping restaurant employees learn essential information before practical shifts. It combines a story-led public website with employee training and manager oversight demos. The content is fictional demonstration material and is not intended as real food-safety or operating instruction.
+baysics is a frontend concept connecting restaurant training, menu engineering, and waste tracking. It combines a story-led public website with employee learning and manager operations demos. It is not a production restaurant-management system.
 
 ## Features
 
-- Editorial marketing homepage with hospitality photography, product story, pilot form, and embedded app preview
+- Editorial marketing homepage with sourced industry research, citations, an ROI scenario calculator, and pilot-framework entry point
 - No-account demo login with direct employee and manager entry points
 - Employee pathway with seven modules, lesson content, video interaction, bilingual terminology, and progress tracking
 - Working five-question quiz with immediate feedback, pass result, retake flow, and saved score
 - Searchable recipe guides with printable detail view and clear placeholder safety labeling
 - Interactive opening, safety, station, closing, and storage checklists
 - Earned and locked certificates with a printable certificate view
-- Manager overview with focused completion chart, activity, readiness, and attention states
+- Unified manager overview spanning people, training efficiency, menu, and waste
+- Menu engineering with a four-quadrant matrix, sortable table, transparent calculations, and item details
+- Waste logging with local persistence, cost calculations, trends, ranked ingredients, and training links
+- Public-menu knowledge module and quiz connected to station training
+- Pilot measurement framework with honest before/during placeholders
 - Filterable employee progress table with detail drawer, notes, quiz scores, checklists, and sign-offs
 - Manager content library with local duplicate actions and a convincing lesson editor drawer
 - Persistent prototype role switcher and reset control
@@ -25,7 +29,7 @@ baysics is a polished frontend concept for helping restaurant employees learn es
 - React 19 and TypeScript
 - Tailwind CSS 4 plus project design tokens
 - Lucide React icons
-- Recharts for one focused manager completion chart
+- Recharts for focused research and waste visualizations
 - Local typed mock data and browser local storage
 
 ## Local setup
@@ -39,19 +43,29 @@ npm run dev
 
 Open `http://localhost:3000`. Production validation uses `npm run build`; the built app can be started with `npm run start`.
 
+## Deployment
+
+The project is configured for Cloudflare Workers. Authenticate once with `npx wrangler login`, then publish with:
+
+```bash
+npm run deploy
+```
+
+Cloudflare provides a `baysics.<account>.workers.dev` address. A custom domain such as `demo.baysics.ca` can be attached from the Worker's **Domains & Routes** settings.
+
 ## Project structure
 
 ```text
 app/
   components/
     dashboard/       Shared employee/manager application shell
-    manager/         Manager overview, employees, and content library
+    manager/         Overview, team, content, menu engineering, and waste
     marketing/       Public homepage and login
     quiz/            Working quiz experience
     shared/          Prototype controls
     training/        Modules, lessons, recipes, checklists, certificates
   config/brand.ts    Product name, restaurant, palette, dates, image URLs
-  data/mock-data.ts  Typed restaurant demo content
+  data/              Public sources, fictional operations data, and LMS content
   lib/storage.ts     Local-storage keys and helpers
   types/index.ts     Shared product types
   employee/          Employee routes
@@ -67,12 +81,16 @@ public/og.png        Generated social preview card
 - `/employee/training` — training pathway
 - `/employee/training/[moduleId]` — interactive lesson page
 - `/employee/training/fryer-station/quiz` — working quiz
+- `/employee/menu-knowledge` — public menu knowledge and station quiz
 - `/employee/recipes` — searchable recipe guides
 - `/employee/checklists` — persistent checklists
 - `/employee/certificates` — earned and locked certificates
 - `/manager` — manager overview
 - `/manager/employees` — employee progress and details
 - `/manager/content` — training content library and editor
+- `/manager/menu-engineering` — profitability matrix, analytics table, and item drawer
+- `/manager/waste` — persistent waste entry and cost analytics
+- `/pilot` — proposed restaurant pilot measurement framework
 
 ## Demo roles
 
@@ -84,7 +102,13 @@ No authentication is performed and no form data is transmitted.
 
 ## Local storage
 
-The prototype stores completed lessons, quiz scores, checklist checks, and demo preferences in the current browser. Keys are defined in `app/lib/storage.ts`. The persistent Demo control includes **Reset**, which removes all baysics demo keys without touching unrelated browser data.
+The prototype stores completed lessons, quiz scores, checklist checks, waste logs, and demo preferences in the current browser. Keys are defined in `app/lib/storage.ts`. The persistent Demo control includes **Reset**, which removes all baysics demo keys without touching unrelated browser data.
+
+## Data integrity
+
+Public Alimentaria Mexicana menu names, categories, descriptions, and listed prices are stored as a static typed development snapshot in `app/data/alimentaria-menu.ts`, with the source URL and verification date. No runtime scraping occurs.
+
+Sales, food costs, ingredient costs, quantities, waste, labour, employee analytics, margins, and scenario savings are fictional illustrative demo data. They must not be interpreted as Alimentaria Mexicana operating information. Industry statistics use readable citations to Homebase and Toast. Recipe and SOP examples remain placeholders.
 
 ## Replacing branding
 
@@ -108,6 +132,7 @@ A production version would require:
 - Rich content authoring and version history
 - Email, push, or in-app notifications
 - Full translation and localization workflows
+- POS, inventory, payroll, scheduling, supplier-invoice, accounting, digital-scale, and employee-system integrations
 - Privacy, retention, consent, audit logging, and data-security controls
 - Approved restaurant-specific food-safety content and legal review
 

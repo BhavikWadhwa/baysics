@@ -7,3 +7,45 @@ export type ChecklistTemplate = { id: string; title: string; microLabel: string;
 export type Certificate = { id: string; title: string; earned: boolean; date?: string };
 export type Employee = { id: string; name: string; initials: string; role: string; station: string; startDate: string; pathway: string; progress: number; quizAverage: number; lastActive: string; status: "On track" | "Needs attention" | "Ready for sign-off" };
 export type ManagerActivity = { id: string; person: string; action: string; time: string };
+
+export type DataProvenance = "public-menu" | "industry-source" | "illustrative-demo";
+export type MenuClassification = "star" | "plowhorse" | "puzzle" | "dog";
+export type PublicMenuItem = {
+  id: string;
+  name: string;
+  category: "To Share" | "Chilaquiles" | "Mains" | "Tacos" | "Dessert";
+  sellingPrice: number;
+  priceDisplay: string;
+  description: string;
+  provenance: "public-menu";
+};
+export type MenuItemAnalytics = PublicMenuItem & {
+  unitsSold: number;
+  foodCostPerPlate: number;
+  allocatedWasteCost: number;
+  revenue: number;
+  contributionMargin: number;
+  foodCostPercent: number;
+  theoreticalFoodCost: number;
+  wasteAdjustedFoodCost: number;
+  adjustedContributionMargin: number;
+  popularityScore: number;
+  classification: MenuClassification;
+  ingredientCosts: { ingredient: string; cost: number }[];
+};
+export type WasteReason = "Over-prep" | "Spoilage" | "Incorrect preparation" | "Quality issue" | "Returned order" | "Dropped/damaged" | "Trim" | "Expired" | "Other";
+export type WasteLog = {
+  id: string;
+  date: string;
+  time: string;
+  ingredient: string;
+  menuItemId?: string;
+  quantity: number;
+  unit: string;
+  unitCost: number;
+  station: string;
+  employee: string;
+  reason: WasteReason;
+  note: string;
+  provenance: "illustrative-demo";
+};

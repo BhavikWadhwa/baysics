@@ -15,10 +15,10 @@ export async function generateMetadata(): Promise<Metadata> {
   return {
     metadataBase: baseUrl,
     title: `${brand.name} — ${brand.tagline}`,
-    description: "A warm, practical restaurant employee learning platform demo.",
+    description: "Restaurant training, menu intelligence, and waste tracking in one warm operations platform.",
     icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
-    openGraph: { title: `${brand.name} — ${brand.tagline}`, description: "Restaurant training before the first practical shift.", images: [{ url: "/og.png", width: 1792, height: 929, alt: "baysics — Learn before the rush." }] },
-    twitter: { card: "summary_large_image", title: `${brand.name} — ${brand.tagline}`, description: "Restaurant training before the first practical shift.", images: ["/og.png"] },
+    openGraph: { title: `${brand.name} — ${brand.tagline}`, description: "Restaurant training, menu intelligence, and waste tracking.", images: [{ url: "/og.png", width: 1792, height: 929, alt: `baysics — ${brand.tagline}` }] },
+    twitter: { card: "summary_large_image", title: `${brand.name} — ${brand.tagline}`, description: "Restaurant training, menu intelligence, and waste tracking.", images: ["/og.png"] },
   };
 }
 

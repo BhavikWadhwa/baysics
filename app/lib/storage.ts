@@ -1,4 +1,4 @@
-export const STORAGE_KEYS = { lessons:"baysics.completedLessons",quiz:"baysics.quizResults",checklists:"baysics.checklists",preferences:"baysics.preferences" } as const;
+export const STORAGE_KEYS = { lessons:"baysics.completedLessons",quiz:"baysics.quizResults",checklists:"baysics.checklists",preferences:"baysics.preferences",waste:"baysics.wasteLogs" } as const;
 
 export function readStorage<T>(key: string, fallback: T): T {
   if (typeof window === "undefined") return fallback;
